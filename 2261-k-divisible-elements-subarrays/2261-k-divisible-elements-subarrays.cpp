@@ -9,21 +9,17 @@ public:
         while(l<n){
             vector<int> tmp;
             r=l;
+            int pcount=0;
             while(r<n){
+                if(nums[r]%p==0) pcount++;
+                if(pcount>k) break;
                 tmp.push_back(nums[r]);
                 st.insert(tmp);
                 r++;
             }
             l++;
         }
-        for(auto it:st){
-            int pcount=0;
-            for(int i:it){
-                if(i%p==0) pcount++;
-            }
-            if(pcount<=k)
-                count++;
-        }
-        return count;
+        
+        return st.size();
     }
 };
