@@ -23,12 +23,11 @@ public:
        ListNode* cur = cend->next;
        ListNode* nxt = nullptr;
        ListNode* tmp = nullptr;
-       for(int i=0;i<right-left;i++){
+       for(int i=left;i<right;i++){
             nxt = cur->next;
             cur->next = nxt->next;
             nxt->next = cend->next;
             cend->next = nxt; 
-
        }
        return dum->next;;
     }
