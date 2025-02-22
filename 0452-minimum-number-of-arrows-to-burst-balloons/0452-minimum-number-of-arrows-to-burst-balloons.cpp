@@ -9,9 +9,7 @@ public:
         int count=1;
         int res = points[0][1];
         for(int i=1;i<n;i++){
-            if(points[i][0]<=res){
-                continue;
-            }else{
+            if(points[i][0]>res){
                 count++;
                 res = points[i][1];
             }
