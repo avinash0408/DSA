@@ -20,6 +20,7 @@ class Solution {
 public:
     Node* connect(Node* root) {
         if(root==nullptr) return root;
+        root->next = nullptr;
         queue<Node*> q;
         q.push(root);
         while(!q.empty()){
@@ -28,14 +29,15 @@ public:
             for(int i=0;i<size;i++){
                 Node* top = q.front();
                 q.pop();
-                if(prev){
-                    prev->next = top;
+                if(prev)
+                {
+                    top->next = prev;
                 }
                 prev = top;
-                if(top->left) q.push(top->left);
                 if(top->right) q.push(top->right);
+                if(top->left) q.push(top->left);
             }
-        } 
+        }
         return root;
     }
 };
